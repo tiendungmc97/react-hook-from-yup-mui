@@ -16,7 +16,8 @@ const options = [
 
 const schema = yup.object().shape({
     firstName: yup.string().min(4, "Ít nhất 4 kí tự"),
-  //   email: yup.string().email().required(),
+    lastName: yup.string().min(4, "Ít nhất 4 kí tự"),
+    email: yup.string().email().required(),
   //   password: yup.string().min(4).max(20),
     test: yup.string().required(),
 });
@@ -35,8 +36,9 @@ function Login(props) {
       <form onSubmit={methods.handleSubmit(formSubmitHandle)}>
         <FormProvider {...methods}>
           <InputField name="firstName" label="Họ và Tên" />
+          <InputField name="lastName" label="Teen lot" />
           <br />
-          {/* <InputEmail /> */}
+          <InputEmail name="email" label="Email"/>
           <br />
           <InputSelect name="test" label="Phong" options={options}/>
           <br />

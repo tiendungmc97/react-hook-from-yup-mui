@@ -27,8 +27,8 @@ function InputField(props) {
             label={label}
             fullWidth
             variant="standard"
-            error={!!errors.firstName}
-            helperText={errors.firstName ? errors.firstName?.message : " "}
+            error={!!errors[name]}
+            helperText={errors[name] ? errors[name]?.message : " "}
           />
         )}
       />

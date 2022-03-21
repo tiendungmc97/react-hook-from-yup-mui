@@ -1,30 +1,34 @@
 import { TextField } from "@mui/material";
 import React from "react";
+import {PropTypes} from "prop-types";
 import { Controller, useFormContext } from "react-hook-form";
 
-InputEmail.propTypes = {};
+InputEmail.propTypes = {
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+};
 
 function InputEmail(props) {
   const {
     control,
     formState: { errors },
   } = useFormContext();
-  console.log(useFormContext());
+  const { name, label } = props;
   return (
     <>
       <Controller
-        name="email"
+        name={name}
         control={control}
         defaultValue=""
         render={({ field }) => (
           <TextField
             {...field}
             type="email"
-            label="Email"
+            label={label}
             variant="standard"
             fullWidth
-            error={!!errors.email}
-            helperText={errors.email ? errors.email?.message : " "}
+            error={!!errors[name]}
+            helperText={errors[name] ? errors[name]?.message : " "}
           />
         )}
       />
