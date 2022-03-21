@@ -1,12 +1,11 @@
 import { TextField } from "@mui/material";
 import React from "react";
-// import PropTypes from ""
+import { PropTypes } from "prop-types";
 import { Controller, useFormContext } from "react-hook-form";
 
 InputField.propTypes = {
-    // name: PropTypes.string.isRequired,
-    // label: PropTypes.string.isRequired,
-    
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
 };
 
 function InputField(props) {
@@ -14,7 +13,7 @@ function InputField(props) {
     control,
     formState: { errors },
   } = useFormContext();
-  const {name, label} = props;
+  const { name, label } = props;
   return (
     <>
       <Controller
